@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <tile>Job Registeration form</title>
+        </head>
+    <body style="background-color:lightblue">
+        <div class="container">
+            <h2 align="center">Job registration form</h2>
+            <label>name</label>
+            <input type ="text " id ="name"><br>
+            <label>email</label>
+            <input type ="text" id="email"><br>
+            <label>contact number</label>
+            <input type ="text" id ="contact"><br>
+            <button onclick ="validateform()">register</button>
+            <p id="msg"></p>
+        </div>
+    <script>
+        
+        function validateform(){
+            
+            var name = document.getElementById("name").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var contact = document.getElementById("contact").value.trim();
+            var nameregex = /^[A-Za-z][A-Za-z0-9]{2,19}$/;
+            var emailregex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            var contactregex = /^[6-9][0-9]{9}$/;
+            if(!nameregex.test(name)){
+                document.getElementById("msg").innerHTML = "Invalid name format";
+                document.getElementById("msg").style.color ="red";
+                return ;
+            }
+            if(!emailregex.test(email)){
+                document.getElementById("msg").innerHTML = "Invalid email format";
+                document.getElementById("msg").style.color ="red";
+                return ;
+            }
+            if(!contactregex.test(contact)){
+                document.getElementById("msg").innerHTML = "Invalid contact number format";
+                document.getElementById("msg").style.color ="red";
+                return ;
+            }
+            
+                document.getElementById("msg").innerHTML = "Form submitted successfully!";
+                document.getElementById("msg").style.color ="green";
+                
+        }
+
+</script>
+</body>
+</html>
