@@ -8,6 +8,7 @@ Student Details
 - Course Name: Web Technologies Lab
 
 Week 1 – Online Mobile Store Web Page
+
 Description
 Designed a static online mobile store web page using HTML. The page displays a table of mobile products with links to individual product pages. Each product page contains the product image, key features presented as a list, and a short demonstration video.
 
