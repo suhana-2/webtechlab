@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Loan EMI Calculator</title>
+    <script>
+        function calculateEMI() {
+            var name = document.getElementById("name").value;
+            var occupation = document.getElementById("occupation").value;
+            var loan = parseFloat(document.getElementById("loan").value);
+            var rate = parseFloat(document.getElementById("rate").value);
+            var years = parseInt(document.getElementById("years").value);
+
+            var monthlyRate = rate / (12 * 100);
+            var months = years * 12;
+
+            var emi = (loan * monthlyRate * Math.pow(1 + monthlyRate, months)) /
+                      (Math.pow(1 + monthlyRate, months) - 1);
+
+            document.getElementById("result").innerHTML =
+                "<h3>EMI Information</h3>" +
+                "<p><b>Name:</b> " + name + "</p>" +
+                "<p><b>Occupation:</b> " + occupation + "</p>" +
+                "<p><b>Loan Amount:</b> ₹" + loan + "</p>" +
+                "<p><b>Interest Rate:</b> " + rate + "%</p>" +
+                "<p><b>Tenure:</b> " + years + " Years</p>" +
+                "<p><b>Monthly EMI:</b> ₹" + emi.toFixed(2) + "</p>";
+
+            return false;
+        }
+    </script>
+</head>
+<body>
+
+<h2>Bank Loan EMI Calculator</h2>
+
+<form onsubmit="return calculateEMI()">
+    Name:
+    <input type="text" id="name" required><br><br>
+
+    Occupation:
+    <input type="text" id="occupation" required><br><br>
+
+    Loan Amount:
+    <input type="number" id="loan" required><br><br>
+
+    Rate of Interest (%):
+    <input type="number" id="rate" step="0.01" required><br><br>
+
+    Tenure (Years):
+    <input type="number" id="years" required><br><br>
+
+    <input type="submit" value="Calculate EMI">
+</form>
+
+<div id="result"></div>
+
+</body>
+</html>
